@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">NewsApp</string>
     <string name="supervision_text">Supervised by Muhammad Nabil</string>
+    <string name="news_app">News App</string>
+    <string name="categories">Categories</string>
+    <string name="settings">Settings</string>
 </resources>
