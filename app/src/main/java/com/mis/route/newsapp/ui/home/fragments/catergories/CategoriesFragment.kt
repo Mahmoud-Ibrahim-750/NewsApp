@@ -18,4 +18,6 @@ class CategoriesFragment : Fragment() {
         binding = FragmentCategoriesBinding.inflate(inflater, container, false)
         return binding.root
     }
+
+
 }

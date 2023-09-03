@@ -1,12 +1,14 @@
 package com.mis.route.newsapp.ui.home
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.mis.route.newsapp.R
 import com.mis.route.newsapp.databinding.ActivityHomeBinding
 import com.mis.route.newsapp.ui.home.fragments.catergories.CategoriesFragment
+import com.mis.route.newsapp.ui.home.fragments.news.NewsFragment
 import com.mis.route.newsapp.ui.home.fragments.settings.SettingsFragment
 
 class HomeActivity : AppCompatActivity() {
@@ -16,6 +18,8 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        showFragment(CategoriesFragment()) // by default
 
         binding.topAppBar.setNavigationOnClickListener { binding.drawerLayout.open() }
 
@@ -41,5 +45,9 @@ class HomeActivity : AppCompatActivity() {
             .beginTransaction()
             .replace(R.id.fragment_container, fragment)
             .commit()
+    }
+
+    fun onCategoryClick(view: View) {
+        showFragment(NewsFragment(view.id))
     }
 }
