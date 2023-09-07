@@ -3,151 +3,78 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/main_background">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/main_background"
+    android:padding="16dp">
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/sources_progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/item_source" />
 
     <TextView
-        android:id="@+id/headline_text"
-        android:layout_width="wrap_content"
+        android:id="@+id/no_sources_textview"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:text="@string/pick_category_text"
-        android:textSize="22sp"
-        android:textStyle="bold"
+        android:text="@string/no_sources"
+        android:gravity="center"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- the 3 left containers-->
-    <LinearLayout
-        android:id="@+id/sports_container"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="22dp"
-        android:background="@drawable/shape_left_category_background"
-        android:backgroundTint="@color/red"
-        android:gravity="center"
-        android:onClick="onCategoryClick"
-        android:orientation="vertical"
-        android:paddingHorizontal="4dp"
-        android:paddingVertical="8dp"
-        app:layout_constraintHeight_percent="0.25"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/headline_text"
-        app:layout_constraintWidth_percent="0.37">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/image_sports" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/sports_text"
-            android:textColor="@color/white"
-            android:textSize="22sp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/health_container"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/shape_left_category_background"
-        android:backgroundTint="@color/pink"
-        android:gravity="center"
-        android:onClick="onCategoryClick"
-        android:orientation="vertical"
-        android:paddingHorizontal="4dp"
-        android:paddingVertical="8dp"
-        app:layout_constraintHeight_percent="0.25"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sports_container"
-        app:layout_constraintWidth_percent="0.37">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/image_health" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/health_text"
-            android:textColor="@color/white"
-            android:textSize="22sp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
-
-    <!-- the 3 right containers-->
-    <LinearLayout
-        android:id="@+id/politics_container"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="45dp"
-        android:background="@drawable/shape_right_category_background"
-        android:backgroundTint="@color/dark_blue"
-        android:gravity="center"
-        android:onClick="onCategoryClick"
-        android:orientation="vertical"
-        android:paddingHorizontal="4dp"
-        android:paddingVertical="8dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/sources_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.25"
-        app:layout_constraintTop_toBottomOf="@id/headline_text"
-        app:layout_constraintWidth_percent="0.37">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/item_source" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/image_politics" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/politics_text"
-            android:textColor="@color/white"
-            android:textSize="22sp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/business_container"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="45dp"
-        android:background="@drawable/shape_right_category_background"
-        android:backgroundTint="@color/dark_orange"
-        android:gravity="center"
-        android:onClick="onCategoryClick"
-        android:orientation="vertical"
-        android:paddingHorizontal="4dp"
-        android:paddingVertical="8dp"
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/articles_progress_bar"
+        style="@style/Widget.MaterialComponents.CircularProgressIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.25"
-        app:layout_constraintTop_toBottomOf="@id/politics_container"
-        app:layout_constraintWidth_percent="0.37">
+        app:layout_constraintTop_toBottomOf="@id/sources_recycler" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/image_business" />
+    <TextView
+        android:id="@+id/no_articles_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/no_articles_text"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sources_recycler" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/business_text"
-            android:textColor="@color/white"
-            android:textSize="22sp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/articles_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sources_recycler"
+        tools:listitem="@layout/item_article" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
