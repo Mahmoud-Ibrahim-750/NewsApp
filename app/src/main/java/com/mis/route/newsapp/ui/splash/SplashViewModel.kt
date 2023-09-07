@@ -1,4 +1,4 @@
-package com.mis.route.newsapp.ui.splash.viewmodel
+package com.mis.route.newsapp.ui.splash
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

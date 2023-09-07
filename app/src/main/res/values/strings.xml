@@ -10,4 +10,7 @@
     <string name="environment_text">Environment</string>
     <string name="politics_text">Politics</string>
     <string name="business_text">Business</string>
+    <string name="science_text">Science</string>
+    <string name="no_articles_text">No Articles Available at the time</string>
+    <string name="no_sources">No Sources for this Category</string>
 </resources>
