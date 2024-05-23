@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.mis.route.newsapp.ui.home.fragments.catergories.CategoriesViewModel" />
+
+        <import type="com.mis.route.newsapp.Constants" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/main_background">
+
+            <TextView
+                android:id="@+id/headline_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="35dp"
+                android:text="@string/pick_category_text"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- the 3 left containers-->
+            <LinearLayout
+                android:id="@+id/sports_container"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="22dp"
+                android:background="@drawable/shape_left_category_background"
+                android:backgroundTint="@color/red"
+                android:gravity="center"
+                android:onClick="onCategoryClick"
+                android:orientation="vertical"
+                android:paddingHorizontal="4dp"
+                android:paddingVertical="20dp"
+                app:layout_constraintHeight_percent="0.25"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/headline_text"
+                app:layout_constraintWidth_percent="0.37">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/image_sports" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sports_text"
+                    android:textColor="@color/white"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <!--        TODO: what is wrong with the click?-->
+            <!--        android:onClick="@{() -> viewModel.onCategoryClick(Constants.HEALTH_CATEGORY)}"-->
+            <LinearLayout
+                android:id="@+id/health_container"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/shape_left_category_background"
+                android:backgroundTint="@color/pink"
+                android:gravity="center"
+                android:onClick="onCategoryClick"
+                android:orientation="vertical"
+                android:paddingHorizontal="4dp"
+                android:paddingVertical="20dp"
+                app:layout_constraintHeight_percent="0.25"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/sports_container"
+                app:layout_constraintWidth_percent="0.37">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/image_health" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/health_text"
+                    android:textColor="@color/white"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/environment_container"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/shape_left_category_background"
+                android:backgroundTint="@color/light_blue"
+                android:gravity="center"
+                android:onClick="onCategoryClick"
+                android:orientation="vertical"
+                android:paddingHorizontal="4dp"
+                android:paddingVertical="20dp"
+                app:layout_constraintHeight_percent="0.25"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/health_container"
+                app:layout_constraintWidth_percent="0.37">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/image_environment" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/environment_text"
+                    android:textColor="@color/white"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <!-- the 3 right containers-->
+            <LinearLayout
+                android:id="@+id/politics_container"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginEnd="45dp"
+                android:background="@drawable/shape_right_category_background"
+                android:backgroundTint="@color/dark_blue"
+                android:gravity="center"
+                android:onClick="onCategoryClick"
+                android:orientation="vertical"
+                android:paddingHorizontal="4dp"
+                android:paddingVertical="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.25"
+                app:layout_constraintTop_toBottomOf="@id/headline_text"
+                app:layout_constraintWidth_percent="0.37">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/image_politics" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/politics_text"
+                    android:textColor="@color/white"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/business_container"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="45dp"
+                android:background="@drawable/shape_right_category_background"
+                android:backgroundTint="@color/dark_orange"
+                android:gravity="center"
+                android:onClick="onCategoryClick"
+                android:orientation="vertical"
+                android:paddingHorizontal="4dp"
+                android:paddingVertical="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.25"
+                app:layout_constraintTop_toBottomOf="@id/politics_container"
+                app:layout_constraintWidth_percent="0.37">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/image_business" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/business_text"
+                    android:textColor="@color/white"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/science_container"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="45dp"
+                android:background="@drawable/shape_right_category_background"
+                android:backgroundTint="@color/yellow"
+                android:gravity="center"
+                android:onClick="onCategoryClick"
+                android:orientation="vertical"
+                android:paddingHorizontal="4dp"
+                android:paddingVertical="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.25"
+                app:layout_constraintTop_toBottomOf="@id/business_container"
+                app:layout_constraintWidth_percent="0.37">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/image_science" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/science_text"
+                    android:textColor="@color/white"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</layout>
