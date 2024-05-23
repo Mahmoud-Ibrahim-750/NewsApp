@@ -3,6 +3,7 @@ package com.mis.route.newsapp
 object Constants {
     // API
     const val API_KEY = "b1c2708892b04caaa483702cddb42329"
+    const val NEWS_API_BASE_URL = "https://newsapi.org/"
 
     // Categories
     const val SPORTS_CATEGORY = "sports"
@@ -11,4 +12,8 @@ object Constants {
     const val BUSINESS_CATEGORY = "business"
     const val ENVIRONMENT_CATEGORY = "environment"
     const val SCIENCE_CATEGORY = "science"
+
+    // Articles
+    const val PAGE_SIZE = 50
+
 }

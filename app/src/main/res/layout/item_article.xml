@@ -7,7 +7,7 @@
 
         <variable
             name="article"
-            type="com.mis.route.newsapp.webservices.models.articles.Article" />
+            type="com.mis.route.newsapp.data.data_sources.remote.news_api.models.articles.Article" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

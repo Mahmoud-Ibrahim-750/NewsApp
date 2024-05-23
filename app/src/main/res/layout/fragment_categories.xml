@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.mis.route.newsapp.ui.home.fragments.catergories.CategoriesViewModel" />
+            type="com.mis.route.newsapp.presentations.ui.home.fragments.catergories.CategoriesViewModel" />
 
         <import type="com.mis.route.newsapp.Constants" />
     </data>
