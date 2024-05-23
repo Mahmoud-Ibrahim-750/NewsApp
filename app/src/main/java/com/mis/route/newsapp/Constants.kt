@@ -18,5 +18,6 @@ object Constants {
 
     // Articles
     const val PAGE_SIZE = 50
+    const val PASSED_ARTICLE_KEY = "PassedArticleKey"
 
 }
