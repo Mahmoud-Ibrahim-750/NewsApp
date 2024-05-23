@@ -9,6 +9,7 @@ import com.mis.route.newsapp.R
 fun bindUrlToImage(imageView: ImageView, url: String) {
     //                val progress = CircularProgressDrawable(binding.root.context)
 //                progress.isIndeterminate = true
+    // TODO: revisit this and change as needed
     Glide
         .with(imageView)
         .load(url)
