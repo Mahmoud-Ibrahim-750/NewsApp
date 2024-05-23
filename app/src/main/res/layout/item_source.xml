@@ -6,7 +6,7 @@
 
         <variable
             name="source"
-            type="com.mis.route.newsapp.webservices.models.sources.Source" />
+            type="com.mis.route.newsapp.data.data_sources.remote.news_api.models.sources.Source" />
     </data>
 
     <LinearLayout
