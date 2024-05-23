@@ -59,7 +59,7 @@ class NewsFragment(private val category: String) : Fragment() {
             binding.articlesProgressBar.isVisible = true
             binding.articlesRecycler.isVisible = false
             // load first source by default
-            sourcesList[0]?.id?.let { viewModel.getArticles(it) }
+            sourcesList[0]?.let { viewModel.getArticles(it.toMiniSource()) }
         }
 
         viewModel.articlesList.observe(viewLifecycleOwner) {
@@ -92,7 +92,7 @@ class NewsFragment(private val category: String) : Fragment() {
                 sourcesAdapter.notifyItemChanged(newPosition) // to add highlight
                 binding.articlesProgressBar.isVisible = true
                 binding.articlesRecycler.isVisible = false
-                viewModel.getArticles(source?.id.toString())
+                viewModel.getArticles(source.toMiniSource())
             }
         binding.sourcesRecycler.adapter = sourcesAdapter
 

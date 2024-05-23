@@ -3,9 +3,10 @@ package com.mis.route.newsapp.presentations.ui.home.fragments.news
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mis.route.newsapp.data.data_sources.remote.news_api.NewsApiManager
+import com.mis.route.newsapp.data.data_sources.local.models.sources.MiniSource
 import com.mis.route.newsapp.data.data_sources.remote.news_api.models.articles.Article
 import com.mis.route.newsapp.data.data_sources.remote.news_api.models.sources.Source
+import com.mis.route.newsapp.domain.repositories.ArticleRepository
 import com.mis.route.newsapp.domain.repositories.ArticlesSourceRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -15,7 +16,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class NewsViewModel @Inject constructor(
-    private val articlesSourceRepository: ArticlesSourceRepository
+    private val articlesSourceRepository: ArticlesSourceRepository,
+    private val articleRepository: ArticleRepository
 ) : ViewModel() {
 
     var sourcesList: MutableLiveData<List<Source?>?> = MutableLiveData()
@@ -62,11 +64,10 @@ class NewsViewModel @Inject constructor(
         }
     }
 
-    fun getArticles(source: String) {
+    fun getArticles(source: MiniSource) {
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                val response = NewsApiManager.getApi().getArticles(sources = source)
-                articlesList.postValue(response.articles)
+                articlesList.postValue(articleRepository.getArticle(source))
             } catch (e: HttpException) {
                 dialogMessage.postValue(
                     DialogMessage(

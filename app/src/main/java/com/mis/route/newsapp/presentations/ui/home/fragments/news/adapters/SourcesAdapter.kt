@@ -39,20 +39,19 @@ class SourcesAdapter(var sourcesList: List<Source?>?) :
     var selectedSourcePosition: Int = 0 // first selected by default
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 //        val actualPosition = holder.adapterPosition
-        val actualPosition = position
-        holder.highlightSourceWhen(selectedSourcePosition == actualPosition)
-        val source = sourcesList?.get(actualPosition)
+        holder.highlightSourceWhen(selectedSourcePosition == position)
+        val source = sourcesList?.get(position) ?: return
         holder.binding.source = source
 
         holder.binding.root.setOnClickListener {
             onSourceClickListener.onClick(source, selectedSourcePosition, position)
-            selectedSourcePosition = actualPosition
+            selectedSourcePosition = position
         }
     }
 
     lateinit var onSourceClickListener: OnSourceClickListener
 
     fun interface OnSourceClickListener {
-        fun onClick(source: Source?, oldPosition: Int, newPosition: Int)
+        fun onClick(source: Source, oldPosition: Int, newPosition: Int)
     }
 }

@@ -1,6 +1,8 @@
 package com.mis.route.newsapp.domain.di
 
+import com.mis.route.newsapp.data.repositories.ArticleRepositoryImpl
 import com.mis.route.newsapp.data.repositories.ArticlesSourceRepositoryImpl
+import com.mis.route.newsapp.domain.repositories.ArticleRepository
 import com.mis.route.newsapp.domain.repositories.ArticlesSourceRepository
 import dagger.Binds
 import dagger.Module
@@ -14,4 +16,9 @@ interface DataRepositoryDiModule {
     fun provideArticlesSourceRepository(
         articlesSourceRepositoryImpl: ArticlesSourceRepositoryImpl
     ): ArticlesSourceRepository
+
+    @Binds
+    fun provideArticleRepository(
+        articleRepositoryImpl: ArticleRepositoryImpl
+    ): ArticleRepository
 }

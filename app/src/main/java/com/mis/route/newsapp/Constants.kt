@@ -5,6 +5,9 @@ object Constants {
     const val API_KEY = "b1c2708892b04caaa483702cddb42329"
     const val NEWS_API_BASE_URL = "https://newsapi.org/"
 
+    // Local Room Database
+    const val ROOM_DATABASE_FILE_NAME = "LocalNewsDB"
+
     // Categories
     const val SPORTS_CATEGORY = "sports"
     const val POLITICS_CATEGORY = "politics"
