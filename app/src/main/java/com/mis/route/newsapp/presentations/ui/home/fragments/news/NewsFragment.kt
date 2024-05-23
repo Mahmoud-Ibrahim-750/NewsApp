@@ -9,7 +9,10 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.mis.route.newsapp.Constants
+import com.mis.route.newsapp.R
 import com.mis.route.newsapp.databinding.FragmentNewsBinding
+import com.mis.route.newsapp.presentations.ui.home.fragments.article_details.ArticleDetailsFragment
 import com.mis.route.newsapp.presentations.ui.home.fragments.news.adapters.ArticlesAdapter
 import com.mis.route.newsapp.presentations.ui.home.fragments.news.adapters.SourcesAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -99,7 +102,13 @@ class NewsFragment(private val category: String) : Fragment() {
         // articles recycler view
         articlesAdapter.onArticleClickListener =
             ArticlesAdapter.OnArticleClickListener { article, _ ->
-                // TODO: show full article
+                val args = Bundle()
+                args.putParcelable(Constants.PASSED_ARTICLE_KEY, article)
+                parentFragmentManager
+                    .beginTransaction()
+                    .add(R.id.fragment_container, ArticleDetailsFragment::class.java, args)
+                    .addToBackStack("ArticleDetailsFragment")
+                    .commit()
             }
         binding.articlesRecycler.adapter = articlesAdapter
     }

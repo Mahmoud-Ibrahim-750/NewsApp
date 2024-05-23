@@ -8,4 +8,8 @@
     </style>
 
     <style name="Theme.NewsApp" parent="Base.Theme.NewsApp" />
+
+    <style name="ShapeAppearanceOverlay.App.CornerSize5Percent" parent="">
+        <item name="cornerSize">10%</item>
+    </style>
 </resources>
