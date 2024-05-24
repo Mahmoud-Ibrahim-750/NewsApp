@@ -8,7 +8,7 @@
             name="viewModel"
             type="com.mis.route.newsapp.presentations.ui.home.fragments.catergories.CategoriesViewModel" />
 
-        <import type="com.mis.route.newsapp.Constants" />
+        <import type="com.mis.route.newsapp.presentations.utils.Constants" />
     </data>
 
     <ScrollView

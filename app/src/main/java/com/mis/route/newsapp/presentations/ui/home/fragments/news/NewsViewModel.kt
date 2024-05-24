@@ -31,35 +31,16 @@ class NewsViewModel @Inject constructor(
                 sourcesList.postValue(articlesSourceRepository.getSources(category))
             } catch (e: HttpException) {
                 dialogMessage.postValue(
-                    DialogMessage(
-                        "Something Went Wrong (${e.code()})",
-                        e.message,
-                        "Try Again", { dialogInterface, _ ->
-                            dialogInterface.dismiss()
-                            getSources(category)
-                        },
-                        "Cancel", { dialogInterface, _ ->
-                            dialogInterface.dismiss()
-                        },
-                        true
-                    )
+                    createErrorDialogMessage(
+                        code = e.code(),
+                        exception = e,
+                        retryAction = { getSources(category) })
                 )
             } catch (e: Exception) {
                 dialogMessage.postValue(
-                    DialogMessage(
-                        "Something Went Wrong",
-                        e.localizedMessage,
-                        "Try Again",
-                        { dialogInterface, _ ->
-                            dialogInterface.dismiss()
-                            getSources(category)
-                        },
-                        "Cancel",
-                        { dialogInterface, _ ->
-                            dialogInterface.dismiss()
-                        },
-                        true
-                    )
+                    createErrorDialogMessage(
+                        exception = e,
+                        retryAction = { getSources(category) })
                 )
             }
         }
@@ -75,39 +56,40 @@ class NewsViewModel @Inject constructor(
                 articlesList.postValue(articleRepository.getArticle(source, query, page))
             } catch (e: HttpException) {
                 dialogMessage.postValue(
-                    DialogMessage(
-                        "Something Went Wrong (${e.code()})",
-                        e.message(),
-                        "Try Again",
-                        { dialogInterface, _ ->
-                            dialogInterface.dismiss()
-                            viewModelScope.launch { getArticles(source) }
-                        },
-                        "Cancel",
-                        { dialogInterface, _ ->
-                            dialogInterface.dismiss()
-                        },
-                        true
-                    )
+                    createErrorDialogMessage(
+                        code = e.code(),
+                        exception = e,
+                        retryAction = { getArticles(source) })
                 )
             } catch (e: Exception) {
                 dialogMessage.postValue(
-                    DialogMessage(
-                        "Something Went Wrong",
-                        e.localizedMessage,
-                        "Try Again",
-                        { dialogInterface, _ ->
-                            dialogInterface.dismiss()
-                            viewModelScope.launch { getArticles(source) }
-                        },
-                        "Cancel",
-                        { dialogInterface, _ ->
-                            dialogInterface.dismiss()
-                        },
-                        true
-                    )
+                    createErrorDialogMessage(
+                        exception = e,
+                        retryAction = { getArticles(source) })
                 )
             }
         }
+    }
+
+    private fun createErrorDialogMessage(
+        code: Int? = null,
+        exception: Exception,
+        retryAction: (() -> Unit)
+    ): DialogMessage {
+        val titleBoundCode = if (code != null) ", code $code" else ""
+        return DialogMessage(
+            "Something Went Wrong$titleBoundCode",
+            exception.message,
+            "Try Again",
+            { dialogInterface, _ ->
+                dialogInterface.dismiss()
+                retryAction.invoke()
+            },
+            "Cancel",
+            { dialogInterface, _ ->
+                dialogInterface.dismiss()
+            },
+            true
+        )
     }
 }

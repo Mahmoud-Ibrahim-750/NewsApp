@@ -11,9 +11,9 @@ import android.widget.ArrayAdapter
 import androidx.core.app.ActivityCompat
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
-import com.mis.route.newsapp.Constants
 import com.mis.route.newsapp.R
 import com.mis.route.newsapp.databinding.FragmentSettingsBinding
+import com.mis.route.newsapp.presentations.utils.Constants
 import java.util.Locale
 
 class SettingsFragment : Fragment() {

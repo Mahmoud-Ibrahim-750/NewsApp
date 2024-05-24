@@ -9,13 +9,13 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.mis.route.newsapp.Constants
 import com.mis.route.newsapp.R
 import com.mis.route.newsapp.data.data_sources.local.models.sources.MiniSource
 import com.mis.route.newsapp.databinding.FragmentNewsBinding
 import com.mis.route.newsapp.presentations.ui.home.fragments.article_details.ArticleDetailsFragment
 import com.mis.route.newsapp.presentations.ui.home.fragments.news.adapters.ArticlesAdapter
 import com.mis.route.newsapp.presentations.ui.home.fragments.news.adapters.SourcesAdapter
+import com.mis.route.newsapp.presentations.utils.Constants
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

@@ -5,11 +5,11 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.mis.route.newsapp.Constants
 import com.mis.route.newsapp.data.data_sources.local.daos.ArticleDao
 import com.mis.route.newsapp.data.data_sources.local.daos.SourceDao
 import com.mis.route.newsapp.data.data_sources.local.models.articles.CachedArticle
 import com.mis.route.newsapp.data.data_sources.local.models.sources.CachedSource
+import com.mis.route.newsapp.presentations.utils.Constants
 
 @Database(entities = [CachedSource::class, CachedArticle::class], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)

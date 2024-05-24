@@ -1,8 +1,8 @@
 package com.mis.route.newsapp.data.data_sources.remote.news_api
 
-import com.mis.route.newsapp.Constants
 import com.mis.route.newsapp.data.data_sources.remote.news_api.models.articles.ArticlesResponse
 import com.mis.route.newsapp.data.data_sources.remote.news_api.models.sources.SourcesResponse
+import com.mis.route.newsapp.presentations.utils.Constants
 import retrofit2.http.GET
 import retrofit2.http.Query
 
