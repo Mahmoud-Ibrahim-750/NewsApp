@@ -18,6 +18,7 @@ interface NewsWebServices {
     suspend fun getArticles(
         @Query("apiKey") apiKey: String = Constants.API_KEY,
         @Query("sources") sources: String,
+        @Query("q") query: String? = null,
 //        @Query("language") language: String,
 //        @Query("sortBy") sortBy: String,
         @Query("pageSize") pageSize: Int = Constants.PAGE_SIZE

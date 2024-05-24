@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.mis.route.newsapp.Constants
 import com.mis.route.newsapp.R
+import com.mis.route.newsapp.data.data_sources.local.models.sources.MiniSource
 import com.mis.route.newsapp.databinding.FragmentNewsBinding
 import com.mis.route.newsapp.presentations.ui.home.fragments.article_details.ArticleDetailsFragment
 import com.mis.route.newsapp.presentations.ui.home.fragments.news.adapters.ArticlesAdapter
@@ -22,6 +23,7 @@ class NewsFragment(private val category: String) : Fragment() {
 
     private lateinit var binding: FragmentNewsBinding
     private lateinit var viewModel: NewsViewModel
+    private lateinit var currentSelectedSource: MiniSource
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,7 +64,10 @@ class NewsFragment(private val category: String) : Fragment() {
             binding.articlesProgressBar.isVisible = true
             binding.articlesRecycler.isVisible = false
             // load first source by default
-            sourcesList[0]?.let { viewModel.getArticles(it.toMiniSource()) }
+            sourcesList[0]?.let {
+                currentSelectedSource = it.toMiniSource()
+                viewModel.getArticles(currentSelectedSource)
+            }
         }
 
         viewModel.articlesList.observe(viewLifecycleOwner) {
@@ -95,7 +100,8 @@ class NewsFragment(private val category: String) : Fragment() {
                 sourcesAdapter.notifyItemChanged(newPosition) // to add highlight
                 binding.articlesProgressBar.isVisible = true
                 binding.articlesRecycler.isVisible = false
-                viewModel.getArticles(source.toMiniSource())
+                currentSelectedSource = source.toMiniSource()
+                viewModel.getArticles(currentSelectedSource)
             }
         binding.sourcesRecycler.adapter = sourcesAdapter
 
@@ -111,6 +117,10 @@ class NewsFragment(private val category: String) : Fragment() {
                     .commit()
             }
         binding.articlesRecycler.adapter = articlesAdapter
+    }
+
+    fun performSearch(query: String) {
+        viewModel.getArticles(currentSelectedSource, query)
     }
 
     private fun Fragment.showDialog(dialogMessage: DialogMessage) {

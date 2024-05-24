@@ -26,20 +26,4 @@ class CategoriesFragment : Fragment() {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        setObservers()
-    }
-
-    private fun setObservers() {
-        viewModel.category.observe(viewLifecycleOwner) {
-            onCategoryPicked.onPicked(it)
-        }
-    }
-
-    lateinit var onCategoryPicked: OnCategoryPicked
-
-    fun interface OnCategoryPicked {
-        fun onPicked(category: String)
-    }
 }

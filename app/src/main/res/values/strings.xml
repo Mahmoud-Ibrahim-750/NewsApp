@@ -14,4 +14,5 @@
     <string name="no_articles_text">No Articles Available at the time</string>
     <string name="no_sources">No Sources for this Category</string>
     <string name="view_full_article">View Full Article</string>
+    <string name="search_bar_label">Search for an article</string>
 </resources>
