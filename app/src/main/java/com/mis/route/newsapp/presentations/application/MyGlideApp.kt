@@ -1,4 +1,4 @@
-package com.mis.route.newsapp.presentations.ui.home.fragments.news
+package com.mis.route.newsapp.presentations.application
 
 import com.bumptech.glide.annotation.GlideModule
 import com.bumptech.glide.module.AppGlideModule

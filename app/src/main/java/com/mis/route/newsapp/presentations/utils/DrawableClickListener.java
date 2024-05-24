@@ -1,4 +1,4 @@
-package com.mis.route.newsapp;
+package com.mis.route.newsapp.presentations.utils;
 
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;

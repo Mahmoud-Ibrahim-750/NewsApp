@@ -1,4 +1,4 @@
-package com.mis.route.newsapp
+package com.mis.route.newsapp.presentations.utils
 
 object Constants {
     // Settings

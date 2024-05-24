@@ -7,13 +7,13 @@ import android.view.inputmethod.EditorInfo
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import com.mis.route.newsapp.Constants
-import com.mis.route.newsapp.DrawableClickListener
 import com.mis.route.newsapp.R
 import com.mis.route.newsapp.databinding.ActivityHomeBinding
 import com.mis.route.newsapp.presentations.ui.home.fragments.catergories.CategoriesFragment
 import com.mis.route.newsapp.presentations.ui.home.fragments.news.NewsFragment
 import com.mis.route.newsapp.presentations.ui.home.fragments.settings.SettingsFragment
+import com.mis.route.newsapp.presentations.utils.Constants
+import com.mis.route.newsapp.presentations.utils.DrawableClickListener
 import dagger.hilt.android.AndroidEntryPoint
 
 @SuppressLint("ClickableViewAccessibility")
