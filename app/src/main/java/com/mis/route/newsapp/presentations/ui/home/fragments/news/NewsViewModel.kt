@@ -23,6 +23,7 @@ class NewsViewModel @Inject constructor(
     var sourcesList: MutableLiveData<List<Source?>?> = MutableLiveData()
     var articlesList: MutableLiveData<List<Article?>?> = MutableLiveData()
     var dialogMessage: MutableLiveData<DialogMessage> = MutableLiveData()
+    private var currentArticlesPage = 1
 
     fun getSources(category: String) {
         viewModelScope.launch(Dispatchers.IO) {
@@ -64,10 +65,14 @@ class NewsViewModel @Inject constructor(
         }
     }
 
-    fun getArticles(source: MiniSource, query: String? = null) {
+    fun requestNextArticlesPage(source: MiniSource, query: String? = null) {
+        getArticles(source, query, ++currentArticlesPage)
+    }
+
+    fun getArticles(source: MiniSource, query: String? = null, page: Int = currentArticlesPage) {
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                articlesList.postValue(articleRepository.getArticle(source, query))
+                articlesList.postValue(articleRepository.getArticle(source, query, page))
             } catch (e: HttpException) {
                 dialogMessage.postValue(
                     DialogMessage(
