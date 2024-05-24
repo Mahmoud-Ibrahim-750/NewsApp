@@ -16,9 +16,9 @@ class ArticleRepositoryImpl @Inject constructor(
     @ApplicationContext private val context: Context
 ) : ArticleRepository {
 
-    override suspend fun getArticle(source: MiniSource): List<Article?> {
+    override suspend fun getArticle(source: MiniSource, query: String?): List<Article?> {
         return if (connectivityChecker.isNetworkAvailable()) {
-            val response = newsApiManager.getApi().getArticles(sources = source.id)
+            val response = newsApiManager.getApi().getArticles(sources = source.id, query = query)
             val cachedArticle = response.articles?.map { it?.toCachedArticle() }
             val nonNullList = cachedArticle?.filterNotNull() ?: emptyList()
             NewsDatabase.getDatabase(context).articleDao().saveArticles(nonNullList)

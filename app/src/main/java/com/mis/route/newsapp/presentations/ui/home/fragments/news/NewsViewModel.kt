@@ -64,10 +64,10 @@ class NewsViewModel @Inject constructor(
         }
     }
 
-    fun getArticles(source: MiniSource) {
+    fun getArticles(source: MiniSource, query: String? = null) {
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                articlesList.postValue(articleRepository.getArticle(source))
+                articlesList.postValue(articleRepository.getArticle(source, query))
             } catch (e: HttpException) {
                 dialogMessage.postValue(
                     DialogMessage(
