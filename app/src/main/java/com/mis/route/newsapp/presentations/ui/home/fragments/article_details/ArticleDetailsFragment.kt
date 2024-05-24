@@ -9,9 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
-import com.mis.route.newsapp.Constants
 import com.mis.route.newsapp.data.data_sources.remote.news_api.models.articles.Article
 import com.mis.route.newsapp.databinding.FragmentArticleDetailsBinding
+import com.mis.route.newsapp.presentations.utils.Constants
 
 class ArticleDetailsFragment : Fragment() {
 

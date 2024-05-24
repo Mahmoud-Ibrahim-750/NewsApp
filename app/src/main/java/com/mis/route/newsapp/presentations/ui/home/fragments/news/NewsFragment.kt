@@ -9,13 +9,13 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.mis.route.newsapp.Constants
 import com.mis.route.newsapp.R
 import com.mis.route.newsapp.data.data_sources.local.models.sources.MiniSource
 import com.mis.route.newsapp.databinding.FragmentNewsBinding
 import com.mis.route.newsapp.presentations.ui.home.fragments.article_details.ArticleDetailsFragment
 import com.mis.route.newsapp.presentations.ui.home.fragments.news.adapters.ArticlesAdapter
 import com.mis.route.newsapp.presentations.ui.home.fragments.news.adapters.SourcesAdapter
+import com.mis.route.newsapp.presentations.utils.Constants
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -79,7 +79,8 @@ class NewsFragment(private val category: String) : Fragment() {
             }
             binding.articlesProgressBar.visibility = View.GONE
             binding.articlesRecycler.visibility = View.VISIBLE
-            articlesAdapter.articlesList = it
+            binding.nextArticlesProgressBar.isVisible = false
+            articlesAdapter.addArticles(it ?: emptyList())
             articlesAdapter.notifyDataSetChanged()
         }
 
@@ -89,7 +90,7 @@ class NewsFragment(private val category: String) : Fragment() {
     }
 
     private val sourcesAdapter = SourcesAdapter(null)
-    private val articlesAdapter = ArticlesAdapter(null)
+    private val articlesAdapter = ArticlesAdapter(mutableListOf())
 
     private fun initViews() {
         // sources recycler view
@@ -116,6 +117,10 @@ class NewsFragment(private val category: String) : Fragment() {
                     .addToBackStack("ArticleDetailsFragment")
                     .commit()
             }
+        articlesAdapter.setOnRequestNewPageListener {
+            viewModel.requestNextArticlesPage(currentSelectedSource)
+            binding.nextArticlesProgressBar.isVisible = true
+        }
         binding.articlesRecycler.adapter = articlesAdapter
     }
 

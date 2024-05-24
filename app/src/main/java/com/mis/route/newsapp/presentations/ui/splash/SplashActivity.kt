@@ -8,9 +8,9 @@ import android.content.res.Configuration
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import com.mis.route.newsapp.Constants
 import com.mis.route.newsapp.databinding.ActivitySplashBinding
 import com.mis.route.newsapp.presentations.ui.home.HomeActivity
+import com.mis.route.newsapp.presentations.utils.Constants
 import java.util.Locale
 import java.util.Timer
 import java.util.TimerTask

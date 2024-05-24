@@ -1,12 +1,12 @@
 package com.mis.route.newsapp.data.repositories
 
 import android.content.Context
-import com.mis.route.newsapp.ConnectivityChecker
 import com.mis.route.newsapp.data.data_sources.local.NewsDatabase
 import com.mis.route.newsapp.data.data_sources.local.models.sources.MiniSource
 import com.mis.route.newsapp.data.data_sources.remote.news_api.NewsApiManager
 import com.mis.route.newsapp.data.data_sources.remote.news_api.models.articles.Article
 import com.mis.route.newsapp.domain.repositories.ArticleRepository
+import com.mis.route.newsapp.presentations.utils.ConnectivityChecker
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
@@ -16,9 +16,10 @@ class ArticleRepositoryImpl @Inject constructor(
     @ApplicationContext private val context: Context
 ) : ArticleRepository {
 
-    override suspend fun getArticle(source: MiniSource, query: String?): List<Article?> {
+    override suspend fun getArticle(source: MiniSource, query: String?, page: Int): List<Article?> {
         return if (connectivityChecker.isNetworkAvailable()) {
-            val response = newsApiManager.getApi().getArticles(sources = source.id, query = query)
+            val response =
+                newsApiManager.getApi().getArticles(sources = source.id, query = query, page = page)
             val cachedArticle = response.articles?.map { it?.toCachedArticle() }
             val nonNullList = cachedArticle?.filterNotNull() ?: emptyList()
             NewsDatabase.getDatabase(context).articleDao().saveArticles(nonNullList)

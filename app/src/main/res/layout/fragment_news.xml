@@ -16,8 +16,7 @@
         app:indicatorColor="@color/green"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/item_source" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/no_sources_textview"
@@ -71,12 +70,24 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/sources_recycler"
         tools:listitem="@layout/item_article" />
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/next_articles_progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="gone"
+        app:indicatorColor="@color/green"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/articles_recycler"
+        app:layout_constraintStart_toStartOf="@id/articles_recycler"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

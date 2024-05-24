@@ -1,4 +1,4 @@
-package com.mis.route.newsapp
+package com.mis.route.newsapp.presentations.utils
 
 object Constants {
     // Settings
@@ -23,7 +23,7 @@ object Constants {
     const val SCIENCE_CATEGORY = "science"
 
     // Articles
-    const val PAGE_SIZE = 50
+    const val PAGE_SIZE = 25
     const val PASSED_ARTICLE_KEY = "PassedArticleKey"
 
 }
