@@ -5,7 +5,7 @@
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeActivity">
+    tools:context=".presentations.ui.home.HomeActivity">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
@@ -30,6 +30,23 @@
                 app:navigationIcon="@drawable/ic_menu_24"
                 app:title="@string/app_name"
                 app:titleCentered="true">
+
+                <EditText
+                    android:id="@+id/search_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="58dp"
+                    android:background="@drawable/shape_search_view_background"
+                    android:backgroundTint="@color/white"
+                    android:drawableRight="@drawable/ic_close"
+                    android:hint="@string/search_bar_label"
+                    android:imeOptions="actionSearch"
+                    android:importantForAutofill="no"
+                    android:inputType="textAutoComplete"
+                    android:padding="6dp"
+                    android:textSize="16sp"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
 
                 <ImageView
                     android:id="@+id/search_icon"
