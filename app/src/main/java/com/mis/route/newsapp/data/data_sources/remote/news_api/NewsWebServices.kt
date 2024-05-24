@@ -21,6 +21,7 @@ interface NewsWebServices {
         @Query("q") query: String? = null,
 //        @Query("language") language: String,
 //        @Query("sortBy") sortBy: String,
-        @Query("pageSize") pageSize: Int = Constants.PAGE_SIZE
+        @Query("pageSize") pageSize: Int = Constants.PAGE_SIZE,
+        @Query("page") page: Int = 1
     ): ArticlesResponse
 }
