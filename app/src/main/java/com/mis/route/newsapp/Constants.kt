@@ -1,6 +1,12 @@
 package com.mis.route.newsapp
 
 object Constants {
+    // Settings
+    const val ARABIC_CODE = "ar"
+    const val ENGLISH_CODE = "en"
+    const val SP_SETTINGS_FILE_NAME = "com.mis.route.newsapp.SPSettingsFile"
+    const val PREF_LANGUAGE_KEY = "PrefLanguageKey"
+
     // API
     const val API_KEY = "b1c2708892b04caaa483702cddb42329"
     const val NEWS_API_BASE_URL = "https://newsapi.org/"
