@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">NewsApp</string>
+    <string name="supervision_text">Supervised by Muhammad Nabil</string>
+    <string name="news_app">News App</string>
+    <string name="categories">الأقسام</string>
+    <string name="settings">الإعدادات</string>
+    <string name="pick_category_text">اختر القسم الذي يهمك</string>
+    <string name="sports_text">رياضة</string>
+    <string name="health_text">صحة</string>
+    <string name="environment_text">بيئة</string>
+    <string name="politics_text">سياسة</string>
+    <string name="business_text">أعمال</string>
+    <string name="science_text">علوم</string>
+    <string name="no_articles_text">لا تتوفر مقالات الآن</string>
+    <string name="no_sources">لا مصادر للأخبار في هذا القسم</string>
+    <string name="view_full_article">عرض الخبر كاملا</string>
+    <string name="search_bar_label">ابحث عن خبر</string>
+    <string name="language_label">اللغة</string>
+    <string name="english_language">الإنجليزية</string>
+    <string name="arabic_language">العربية</string>
+</resources>

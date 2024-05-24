@@ -15,4 +15,7 @@
     <string name="no_sources">No Sources for this Category</string>
     <string name="view_full_article">View Full Article</string>
     <string name="search_bar_label">Search for an article</string>
+    <string name="language_label">Language</string>
+    <string name="english_language">English</string>
+    <string name="arabic_language">Arabic</string>
 </resources>
